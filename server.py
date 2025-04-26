@@ -1,5 +1,20 @@
 
 import socket
+import psycopg2
+
+# connects once
+conn = psycopg2.connect(
+    dbname="neondb",
+    user="neondb_owner",
+    password="npg_MRJOE8Fip3BU",
+    host="ep-summer-credit-a6nmpxnl-pooler.us-west-2.aws.neon.tech",
+    sslmode="require"
+)
+
+def connection(): # connect to data
+    pass
+def queries_handling(): #handles queries and conversions
+    pass
 
 def run_server():
     try:
