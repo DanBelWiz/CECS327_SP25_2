@@ -17,7 +17,7 @@ def queries_handling(): #handles queries and conversions
 def run_server():
     try:
         host_ip = input("Enter the server's IP address (e.g., 127.0.0.1): ") #local connection ipconfig ipv4
-        port = int(input("Enter the port number for the server: "))
+        port = int(input("Enter the port number for the server: ")) #enter any port / repeat for client
 
         # Create a socket, bind it to the provided IP and port, and start listening.
         server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
