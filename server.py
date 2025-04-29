@@ -6,8 +6,8 @@ import psycopg2
 conn = psycopg2.connect(
     dbname="neondb",
     user="neondb_owner",
-    password="npg_MRJOE8Fip3BU",
-    host="ep-summer-credit-a6nmpxnl-pooler.us-west-2.aws.neon.tech",
+    password="Justin password", #change to test different neondb
+    host="host id", #change to test different neondb
     sslmode="require"
 )
 
