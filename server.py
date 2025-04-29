@@ -11,21 +11,27 @@ conn = psycopg2.connect(
     sslmode="require"
 )
 
-def queries_handling(): #handles queries and conversions
+def queries_handling1(): #handles queries and conversions
     pass
+def queries_handling2(): #handles queries and conversions
+    pass
+def queries_handling3(): #handles queries and conversions
+    pass
+
+
 
 def run_server():
     try:
         host_ip = input("Enter the server's IP address (e.g., 127.0.0.1): ") #local connection ipconfig ipv4
-        port = int(input("Enter the port number for the server: ")) #enter any port / repeat for client
+        port = int(input("Enter the port number for the server: "))
 
-        # Create a socket, bind it to the provided IP and port, and start listening.
+        # Create a socket, bind it to the provided IP and port, start listening
         server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         server.bind((host_ip, port))
         server.listen(1)
         print(f"Server is running at {host_ip}:{port} and waiting for connections...")
 
-        # Keep accepting connections from clients in a loop.
+        # Keep accepting connections from clients in a loop
         while True:
             conn, addr = server.accept()
             print(f"Connected to client at {addr}")
@@ -46,18 +52,21 @@ def run_server():
                 # Handle specific queries
                 if "What is the average moisture" in received_text:
                     modified_message = "Confirmation: Received request for average moisture."
+                    queries_handling1()
 
                 elif "What is the average water consumption" in received_text:
                     modified_message = "Confirmation: Received request for average water consumption."
+                    queries_handling2()
 
                 elif "consumed more electricity" in received_text:
                     modified_message = "Confirmation: Received request for electricity comparison."
+                    queries_handling3()
 
                 elif received_text.lower() == "exit":
                     print("Client requested disconnection.")
                     break
 
-                print(f"Sending response: {modified_message}")
+                print(f"Sending response: {modified_message}\n")
                 conn.send(modified_message.encode())
 
             conn.close()
