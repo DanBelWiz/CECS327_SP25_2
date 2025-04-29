@@ -11,6 +11,15 @@ conn = psycopg2.connect(
     sslmode="require"
 )
 
+device_names = {
+
+} #store device names
+
+correlate_sensors = {
+
+} #add name of device + sensor handling
+
+
 def queries_handling1(): #handles queries and conversions
     pass
 def queries_handling2(): #handles queries and conversions
@@ -25,13 +34,13 @@ def run_server():
         host_ip = input("Enter the server's IP address (e.g., 127.0.0.1): ") #local connection ipconfig ipv4
         port = int(input("Enter the port number for the server: "))
 
-        # Create a socket, bind it to the provided IP and port, start listening
+        # Create a socket, bind it to the provided IP and port, and start listening.
         server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         server.bind((host_ip, port))
         server.listen(1)
         print(f"Server is running at {host_ip}:{port} and waiting for connections...")
 
-        # Keep accepting connections from clients in a loop
+        # Keep accepting connections from clients in a loop.
         while True:
             conn, addr = server.accept()
             print(f"Connected to client at {addr}")
