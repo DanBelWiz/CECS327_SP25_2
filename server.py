@@ -6,7 +6,7 @@ import psycopg2
 conn = psycopg2.connect(
     dbname="neondb",
     user="neondb_owner",
-    password="npg_B2teoLV4MHIn", // Justin database
+    password="npg_B2teoLV4MHIn", # Justin database
     host="ep-lucky-cloud-a5fgqzb2-pooler.us-east-2.aws.neon.tech",
     sslmode="require"
 )
