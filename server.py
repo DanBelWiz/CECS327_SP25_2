@@ -10,23 +10,48 @@ conn = psycopg2.connect(
     host="ep-lucky-cloud-a5fgqzb2-pooler.us-east-2.aws.neon.tech",
     sslmode="require"
 )
+# Converts raw sensor values into amperage based on calibration
+def convert_raw_to_amps(raw_value):
+    zero_offset = 22.5
+    sensor_span = 123
+    max_amperage = 30
+    amps = ((raw_value - zero_offset) / sensor_span) * max_amperage
+    return max(amps, 0)
 
-device_names = {
-
-} #store device names
-
-correlate_sensors = {
-
-} #add name of device + sensor handling
-
-
+# Maps asset UIDs to device names and sensor field keys
+DEVICE_MAPPING = {
+    "7z1-903-9xe-74j": {
+        "name": "Fridge 1",
+        "sensors": {
+            "moisture": "DHT11 - moisture",
+            "current": "ACS712 - Ammeter",
+            "pressure": "BMP180 - thermistor"
+        }
+    },
+    "4d0e408d-7fd6-46a9-8eb6-7ea754d30f6d": {
+        "name": "Fridge 2",
+        "sensors": {
+            "moisture": "sensor 1 d398b907-8995-4429-b538-b3fb26a304a2",
+            "current": "sensor 3 d398b907-8995-4429-b538-b3fb26a304a2",
+            "pressure": "sensor 2 d398b907-8995-4429-b538-b3fb26a304a2"
+        }
+    },
+    "8sp-910-ftk-9pg": {
+        "name": "Dishwasher",
+        "sensors": {
+            "water": "Capacitive Liquid Level Sensor - WaterConsumption",
+            "current": "ACS712 - Ammeter_Dishwasher"
+        }
+    }
+}
+'''
 def queries_handling1(): #handles queries and conversions
     pass
 def queries_handling2(): #handles queries and conversions
     pass
 def queries_handling3(): #handles queries and conversions
     pass
-
+'''
 
 
 def run_server():
