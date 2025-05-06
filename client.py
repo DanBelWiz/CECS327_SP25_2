@@ -1,3 +1,4 @@
+
 import socket
 
 # Displays the list of valid queries for the user
@@ -45,6 +46,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-finally:
-    client_socket.close()

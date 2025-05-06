@@ -94,11 +94,11 @@ def process_query(query):
         if not readings:
             return "No water consumption data found."
 
-        # Updated logic: assume max 2000mm = 6 gallons capacity
-        MAX_MM = 2000.0
-        MAX_GALLONS = 6.0
-        avg_mm = sum(readings) / len(readings)
-        gallons = round((avg_mm / MAX_MM) * MAX_GALLONS, 2)
+        # Updated logic: sensor reports flow in L/min, assume 2 minutes of flow per cycle
+        FLOW_DURATION_MIN = 2                # Duration of active water flow in a cycle
+        LITERS_TO_GALLONS = 0.264172
+        avg_lpm = sum(readings) / len(readings)
+        gallons = round(avg_lpm * FLOW_DURATION_MIN * LITERS_TO_GALLONS, 2)
         return f"Average dishwasher water consumption: {gallons} gallons"
 
     if "consumed more electricity" in query:
