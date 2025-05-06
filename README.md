@@ -102,4 +102,5 @@ Enter the corresponding number when prompted.
 
 ## Screenshots 
 Connecting to a remote server 
+Server running on a Virtual Machine
 ![image](https://github.com/user-attachments/assets/e4e8cd76-2884-49d2-970a-fc76e7b46402)
